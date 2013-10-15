@@ -25,14 +25,14 @@
   </div>
   <div class="field">
     <%= f.label :course_id %><br>
-    <%= f.text_field :course_id %>
+    <%= f.collection_select :course_id, Course.all, :id, :name, prompt:true %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :encrypted_pass %><br>
+    <%= f.label :encrypted_pass, 'Password' %><br>
     <%= f.text_field :encrypted_pass %>
   </div>
   <div class="actions">

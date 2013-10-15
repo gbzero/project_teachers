@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :teacher %><br>
-    <%= f.text_field :teacher %>
+    <%= f.label :teacher_id %><br>
+    <%= f.collection_select :teacher_id, Teacher.all, :id, :name, prompt:true %>
   </div>
   <div class="field">
-    <%= f.label :course %><br>
-    <%= f.text_field :course %>
+    <%= f.label :course_id %><br>
+    <%= f.collection_select :course_id, Course.all, :id, :name, prompt:true %>
   </div>
   <div class="field">
     <%= f.label :user %><br>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_field :content %>
+    <%= f.text_area :content %>
   </div>
   <div class="actions">
     <%= f.submit %>
