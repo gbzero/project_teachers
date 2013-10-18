@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Post-T</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+<head lang='es-ES'>
+	<title>Post-T</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  	<%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-	<div class="row">
-		<div class="col-md-2"> <%= render 'layouts/sidebar' %> </div>
-		<div class="col-md-10"> <%= yield %> </div>
+<%= render 'layouts/navbar' %>
+<div class='container'>
+	<div class='row'>
+		<div class='col-md-2'> <%= render 'layouts/sidebar' %> </div>
+		<div class='col-md-10'> <%= yield %> </div>
 	</div>
 </div>
 </body>
