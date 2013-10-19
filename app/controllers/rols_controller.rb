@@ -54,7 +54,7 @@ class RolsController < ApplicationController
   # DELETE /rols/1
   # DELETE /rols/1.json
   def destroy
-    @rol.destroy
+    @rol.delete
     respond_to do |format|
       format.html { redirect_to rols_url }
       format.json { head :no_content }

@@ -54,7 +54,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @comment.destroy
+    @comment.delete
     respond_to do |format|
       format.html { redirect_to comments_url }
       format.json { head :no_content }
