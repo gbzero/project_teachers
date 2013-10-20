@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @major.name %>
-</p>
+<h1> <%= @major.name %> </h1>
 
-<%= link_to 'Edit', edit_major_path(@major) %> |
-<%= link_to 'Back', majors_path %>
+<%= link_to 'Editar', edit_major_path(@major) %> |
+<%= link_to 'Volver', majors_path %>

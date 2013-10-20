@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926024256) do
+ActiveRecord::Schema.define(version: 20131020080659) do
 
   create_table "comments", force: true do |t|
     t.integer  "teacher_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20130926024256) do
     t.string   "second_last_name"
     t.integer  "course_id"
     t.string   "email"
-    t.string   "encrypted_pass"
+    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

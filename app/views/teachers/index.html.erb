@@ -1,31 +1,32 @@
-<h1>Profesores</h1>
-
-<table>
-  <thead>
+<h1>Profesores</h1> 
+<% if @teachers.count <= 0 %> 
+  No hay profesores
+<% end if %>
+  
+<table class='table table-striped table-bordered table-hover'>
+<% if @teachers.count > 0 %> 
+<thead>
+  <tr>
+    <th width='26.5%'> Nombre </th>
+    <th width='26.5%'> Apehido materno </th>
+    <th width='26.5%'> Apehido paterno </th>
+    <th width='5%'></th>
+    <th width='5%'></th>
+  </tr>
+</thead>
+<% end if %>
+<tbody>
+  <% @teachers.each do |teacher| %>
     <tr>
-      <th>Name</th>
-      <th>Last name</th>
-      <th>Second last name</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <td><%= link_to "#{teacher.name}", teacher_path(teacher.id) %></td>
+      <td><%= teacher.last_name %> </td>
+      <td><%= teacher.second_last_name %></td>
+      <td><%= link_to 'Editar', edit_teacher_path(teacher) %></td>
+      <td><%= link_to 'Eliminar', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
-  </thead>
-
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.name %></td>
-        <td><%= teacher.last_name %></td>
-        <td><%= teacher.second_last_name %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <% end %>
+</tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Teacher', new_teacher_path %>
+<div class='btn btn-primary btn-sm'><%= link_to 'Nuevo', new_teacher_path %></div>

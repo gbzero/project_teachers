@@ -10,20 +10,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class='field'>
+    <%= f.label :name, 'Nombre' %><br>
+    <%= f.text_field :name, class:'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+  <div class='field'>
+    <%= f.label :last_name, 'Apellido paterno' %><br>
+    <%= f.text_field :last_name, class:'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :second_last_name %><br>
-    <%= f.text_field :second_last_name %>
+  <div class='field'>
+    <%= f.label :second_last_name, 'Apellido materno' %><br>
+    <%= f.text_field :second_last_name, class:'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
 <% end %>

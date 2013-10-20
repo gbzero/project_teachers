@@ -3,3 +3,10 @@ Para que no mende error con el js
 
 El push es para subir 
 El pull es para bajar
+
+Para antes de subir a heroku siempre hacer
+rake assets:precompile
+	modifica los css y js que usa el usuario
+
+En enviroment/production.rb
+	config.serve_static_assets aqui cambiar el false por true
