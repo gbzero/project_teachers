@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'jquery-rails'
-
+gem 'paperclip', '~> 3.0'
 gem 'sass-rails', '>= 3.2'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 

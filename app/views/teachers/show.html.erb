@@ -4,6 +4,10 @@
   <%= @teacher.name %> 
   <%= @teacher.last_name %>
   <%= @teacher.second_last_name %>
+  <br>
+  <%= link_to @teacher.picture.url do %>
+  <%= image_tag @teacher.picture.url(:mini) %>
+  <% end %>
 </h1>
 
 <%= link_to 'Editar', edit_teacher_path(@teacher) %> |

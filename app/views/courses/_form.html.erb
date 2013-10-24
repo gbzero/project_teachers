@@ -1,8 +1,7 @@
 <%= form_for(@course) do |f| %>
   <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
+    <div id='error_explanation'>
+      <h2><%= pluralize(@course.errors.count, 'error') %> prohibited this course from being saved:</h2>
       <ul>
       <% @course.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,19 +10,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class='field'>
+    <%= f.label :name, 'Nombre' %><br>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :semester %><br>
-    <%= f.number_field :semester %>
+  <div class='field'>
+    <%= f.label :semester, 'Semestre' %><br>
+    <%= f.number_field :semester, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :major %><br>
-    <%= f.collection_select :major_id, Major.all, :id, :name , prompt:true %>
+  <div class='field'>
+    <%= f.label :major_id, 'Carrera' %><br>
+    <%= f.collection_select :major_id, Major.order('name').all, :id, :name , prompt:true %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
 <% end %>

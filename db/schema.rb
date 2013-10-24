@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131020080659) do
+ActiveRecord::Schema.define(version: 20131024012814) do
 
   create_table "comments", force: true do |t|
     t.integer  "teacher_id"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 20131020080659) do
     t.string   "second_last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -66,6 +70,7 @@ ActiveRecord::Schema.define(version: 20131020080659) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nickname"
   end
 
   add_index "users", ["course_id"], name: "index_users_on_course_id"

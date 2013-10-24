@@ -25,7 +25,7 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
-
+    
     respond_to do |format|
       if @teacher.save
         format.html { redirect_to @teacher, notice: 'Maestro creado.' }
@@ -69,6 +69,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:name, :last_name, :second_last_name)
+      params.require(:teacher).permit(:name, :last_name, :second_last_name, :picture)
     end
 end
