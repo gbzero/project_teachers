@@ -13,3 +13,37 @@
  *= require_self
  *= require_tree .
  */
+/*
+.flipH:scaleX {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+} 
+/*
+.flipV:hover {
+	-moz-transform: scaleY(180deg);
+	-o-transform: scaleY(180deg);
+	-webkit-transform: scaleY(180deg);
+	transform: scaleY(180deg);
+	filter: FlipV;
+}
+*/
+img.vol_horizontal{
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+
+img.vol_vertical {
+	-moz-transform: scaleY(-1);
+	-o-transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+	transform: scaleY(-1);
+	filter: FlipV;
+	-ms-filter: "FlipV";
+}

@@ -1,4 +1,7 @@
 ProjectTeacher::Application.routes.draw do
+
+  resources :schools
+
   resources :comments
 
   resources :teachers

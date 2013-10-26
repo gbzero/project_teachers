@@ -1,37 +1,31 @@
-<h1>Listing users</h1>
-
+<h1>Gente</h1>
+<% if @users.count <= 0 %>
+  No hay personas disponibles.<br>
+<% else %>
 <table class='table table-striped table-bordered table-hover'>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Last name</th>
-      <th>Second last name</th>
-      <th>Course</th>
-      <th>Email</th>
-      <th>Encrypted pass</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th width='21%'>Mote</th>
+      <th width='21%'>Nombre</th>
+      <th width='21%'>Apellido paterno</th>
+      <th width='21%'>Apellido materno</th>
+      <th width='8%'></th>
+      <th width='8%'></th>
     </tr>
   </thead>
-
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= link_to "#{user.nickname}", user_path(user) %></td>
         <td><%= user.name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.second_last_name %></td>
-        <td><%= user.course_id %></td>
-        <td><%= user.email %></td>
-        <td><%= user.encrypted_pass %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
-
-<%= link_to 'New User', new_user_path %>
+<button class='btn btn-primary btn-sm' type='button' onclick="window.location.href='<%= new_user_path %>'" > Nuevo </button>

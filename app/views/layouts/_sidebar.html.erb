@@ -1,6 +1,9 @@
-<div> <%= link_to 'Profesores', teachers_path %> </div>
-<div> <%= link_to 'Comentarios', comments_path %> </div>
-<div> <%= link_to 'Carreras', majors_path %> </div>
-<div> <%= link_to 'Roles', rols_path %> </div>
-<div> <%= link_to 'Personas', users_path %> </div>
-<div> <%= link_to 'Materia', courses_path %> </div>
+<div class='btn-group-vertical'>
+	<button class='btn btn-default' type='button' onclick="window.location.href='<%= teachers_path %>'" > Profesores </button>
+	<button class='btn btn-default' type='button' onclick="window.location.href='<%= schools_path %>'" > Escuelas </button>
+	<button class='btn btn-default' type='button' onclick="window.location.href='<%= courses_path %>'" > Materias </button>
+	<button class='btn btn-default' type='button' onclick="window.location.href='<%= majors_path %>'" > Carreras </button>
+	<button class='btn btn-default' type='button' onclick="window.location.href='<%= users_path %>'" > Gente </button>
+	<button class='btn btn-default' type='button' onclick="window.location.href='<%= rols_path %>'" > Roles </button>
+	<button class='btn btn-default' type='button' onclick="window.location.href='<%= comments_path %>'" > Comentarios </button>
+</div>

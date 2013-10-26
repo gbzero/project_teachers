@@ -2,17 +2,17 @@
 
 <p>
   <strong>Teacher:</strong>
-  <%= @comment.teacher %>
+  <%= @comment.teacher.name %>
 </p>
 
 <p>
   <strong>Course:</strong>
-  <%= @comment.course %>
+  <%= @comment.course.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @comment.user %>
+  <%= @comment.user.name %>
 </p>
 
 <p>
@@ -25,5 +25,5 @@
   <%= @comment.content %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Editar', edit_comment_path(@comment) %> |
+<%= link_to 'Volver', comments_path %>

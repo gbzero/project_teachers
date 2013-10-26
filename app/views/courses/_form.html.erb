@@ -15,12 +15,13 @@
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class='field'>
+    <%= f.label :major_id, 'Carrera' %><br>
+    <%= f.collection_select :major_id, Major.order('name').all, :id, :name , { prompt: true }, { class: 'form-control'} %>
+  </div>
+    <div class='field'>
     <%= f.label :semester, 'Semestre' %><br>
     <%= f.number_field :semester, class: 'form-control' %>
   </div>
-  <div class='field'>
-    <%= f.label :major_id, 'Carrera' %><br>
-    <%= f.collection_select :major_id, Major.order('name').all, :id, :name , prompt:true %>
-  </div>
+  <br>
   <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
 <% end %>

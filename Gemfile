@@ -4,7 +4,7 @@ gem 'jquery-rails'
 gem 'paperclip', '~> 3.0'
 gem 'sass-rails', '>= 3.2'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
-
+gem 'aws-sdk', '~> 1.5.0'  # Para subir a heroku
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 

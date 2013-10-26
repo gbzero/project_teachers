@@ -7,26 +7,24 @@
   <thead>
     <tr>
       <th width='50%'>Nombre</th>
-      <th width='10%'>Semestre</th>
-      <th width='20%'>Carrera</th>
-      <th width='10%'></th>
-      <th width='10%'></th>
+      <th width='19%'>Carrera</th>
+      <th width='15%'>Semestre</th>
+      <th width='8%'></th>
+      <th width='8%'></th>
     </tr>
   </thead>
-<% end if %>
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td><%= course.name %></td>
-        <td><%= course.semester %></td>
+        <td><%= link_to "#{course.name}", course_path(course.id) %></td>
         <td><%= course.major.name %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= course.semester %></td>
+        <td><%= link_to 'Editar', edit_course_path(course) %></td>
+        <td><%= link_to 'Eliminar', course, method: :delete, data: { confirm: '¿Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
-<br>
-<div class='btn btn-primary btn-sm'> <%= link_to 'Nuevo', new_course_path %> </div>
+<button class='btn btn-primary btn-sm' type='button' onclick="window.location.href='<%= new_course_path %>'" > Nuevo </button>

@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <div id='error_explanation'>
+      <h2><%= pluralize(@user.errors.count, 'error') %> prohibited this user from being saved:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -10,32 +10,34 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class='field'>
+    <%= f.label :nickname, 'Mote' %>
+    <%= f.text_field :nickname, class:'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+  <div class='field'>
+    <%= f.label :name, 'Nombre' %><br>
+    <%= f.text_field :name, class:'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :second_last_name %><br>
-    <%= f.text_field :second_last_name %>
+  <div class='field'>
+    <%= f.label :last_name, 'Apellido paterno' %><br>
+    <%= f.text_field :last_name, class:'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :course_id %><br>
-    <%= f.collection_select :course_id, Course.all, :id, :name, prompt:true %>
+  <div class='field'>
+    <%= f.label :second_last_name, 'Apellido materno' %><br>
+    <%= f.text_field :second_last_name, class:'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <div class='field'>
+    <%= f.label :major_id, 'Carrera' %><br>
+    <%= f.collection_select :major_id, Major.all, :id, :name, {prompt:true}, {:class => 'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.label :encrypted_pass, 'Password' %><br>
-    <%= f.text_field :encrypted_pass %>
+  <div class='field'>
+    <%= f.label :email, 'E-mail' %><br>
+    <%= f.text_field :email, class:'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class='field'>
+    <%= f.label :password, 'Contraseña' %><br>
+    <%= f.text_field :password, type:'password', class:'form-control' %>
   </div>
+  <br>
+  <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
 <% end %>
