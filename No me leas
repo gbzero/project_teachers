@@ -10,3 +10,7 @@ rake assets:precompile
 
 En enviroment/production.rb
 	config.serve_static_assets aqui cambiar el false por true
+
+HEROKU
+	Cambiar la base de datos
+		heroku run rake db:migrate
