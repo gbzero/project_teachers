@@ -12,5 +12,9 @@ En enviroment/production.rb
 	config.serve_static_assets aqui cambiar el false por true
 
 HEROKU
+	Si no lo tienes en terminal pones
+		gem install heroku
 	Cambiar la base de datos
 		heroku run rake db:migrate
+	Precompilar assets
+		rake assets:precompile --trace RAILS_ENV=production
