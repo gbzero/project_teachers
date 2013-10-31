@@ -4,17 +4,49 @@ Para que no mende error con el js
 El push es para subir 
 El pull es para bajar
 
-Para antes de subir a heroku siempre hacer
-rake assets:precompile
-	modifica los css y js que usa el usuario
+COSAS QUE VI EN CLASES xD
 
-En enviroment/production.rb
-	config.serve_static_assets aqui cambiar el false por true
+	database.yml lo configura heroku el sólito por mi.
+	Apache o nginx.
+	Puma o unicorn. Para es bueno para correr código ruby pero malo para cosas estáticas como js y css.
+	Assets para rails son 3 cosas: css, js e imagenes.
 
 HEROKU
-	Si no lo tienes en terminal pones
+	Para instalarlo pones en terminal
 		gem install heroku
-	Cambiar la base de datos
-		heroku run rake db:migrate
-	Precompilar assets
-		rake assets:precompile --trace RAILS_ENV=production
+	Para subir a heroku
+		1. En enviroment/production.rb poner true donde esta 'config.serve_static_assets'
+		2. rake assets:precompile {--trace RAILS_ENV=production}  # modifica los css y js que usa el usuario, precompila los assets
+		3. agregar public/assets a git y commit
+		4. git push heroku master
+		5. heroku run rake db:migrate	# Actualiza la base de datos
+	Comandos felices
+		Envia la base de datos local al servidor
+			heroku db:push	
+		Copia la base de datos del servidor
+			heroku db:pull
+		Poner en mantenimiento a la pagina
+			heroku maintenance:[on|off] # ON pone en mantenimiento
+
+
+CSS
+	Un CSS Reset es poner todo en lo más básico, en stylesheets/application.css va al principio 
+		el *= require bootstrap porque siempre hace un reset al inicio. 
+
+
+
+En la linea de comandos
+	-ls > directorio.txt hace un archivo nuevo para escribir
+	-ls >> directorio.txt te deja escribir al final.
+
+
+ANGULAR  { Sirve para modificar cosas[variables] en tiempo real }
+	gem 'angularjs-rails'
+	En application.js 
+		//= require angular ponerlo antes de requiere_tree
+	Probar el hola mundo de la pagina de angular.  # 
+	Tiene que tener otra cosa xD 
+
+COSAS
+	gem 'omniauth-facebook' # Para autentificarte con facebook
+	
