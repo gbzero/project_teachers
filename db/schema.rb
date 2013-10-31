@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024225519) do
+ActiveRecord::Schema.define(version: 20131031065735) do
 
   create_table "comments", force: true do |t|
     t.integer  "teacher_id"
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 20131024225519) do
     t.datetime "updated_at"
     t.string   "nickname"
     t.integer  "major_id"
+    t.integer  "rol_id"
   end
+
+  add_index "users", ["rol_id"], name: "index_users_on_rol_id"
 
 end
