@@ -1,20 +1,11 @@
 <%= form_for(@rol) do |f| %>
-  <% if @rol.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rol.errors.count, "error") %> prohibited this rol from being saved:</h2>
+	
+	<%= render 'layouts/error_messages', object: @rol %>
 
-      <ul>
-      <% @rol.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class='field'>
-    <%= f.label :name, 'Nombre' %><br>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-  <br>
-  <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
+	<div class='field'>
+		<%= f.label :name, 'Nombre' %><br>
+		<%= f.text_field :name, class: 'form-control' %>
+	</div>
+	<br>
+	<button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
 <% end %>

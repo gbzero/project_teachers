@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+	<div class="alert alert-dismissable alert-success">
+		<%= notice %>
+	</div>
+<% end %>
 
 <h1> <%= @course.name %> </h1>
 

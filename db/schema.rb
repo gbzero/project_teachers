@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031065735) do
+ActiveRecord::Schema.define(version: 20131103234015) do
 
   create_table "comments", force: true do |t|
     t.integer  "teacher_id"
@@ -27,15 +27,25 @@ ActiveRecord::Schema.define(version: 20131031065735) do
   add_index "comments", ["teacher_id"], name: "index_comments_on_teacher_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "course_teachers", id: false, force: true do |t|
+    t.integer "course_id"
+    t.integer "teacher_id"
+  end
+
+  add_index "course_teachers", ["course_id"], name: "index_course_teachers_on_course_id"
+  add_index "course_teachers", ["teacher_id"], name: "index_course_teachers_on_teacher_id"
+
   create_table "courses", force: true do |t|
     t.string   "name"
     t.integer  "semester"
     t.integer  "major_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "teacher_id"
   end
 
   add_index "courses", ["major_id"], name: "index_courses_on_major_id"
+  add_index "courses", ["teacher_id"], name: "index_courses_on_teacher_id"
 
   create_table "majors", force: true do |t|
     t.string   "name"
@@ -65,7 +75,12 @@ ActiveRecord::Schema.define(version: 20131031065735) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "course_id_id"
+    t.integer  "course_id"
   end
+
+  add_index "teachers", ["course_id"], name: "index_teachers_on_course_id"
+  add_index "teachers", ["course_id_id"], name: "index_teachers_on_course_id_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
