@@ -5,14 +5,15 @@
 <% end %>
 
 <h1> <%= @rol.name %> </h1>
-
-<b> Usuarios con este rol: </b>
+<br>
+<b> Gente con este rol: </b>
 <ul>
 <% User.scoped_by_rol_id(@rol.id).each do |user| %>
 	<il>
-		<%= user.nickname %>, <%= user.full_name %>
+		<%= link_to "#{user.nickname}", user_path(user) %>
 	</il>
 <% end %>
 </ul>
+<br>
 <%= link_to 'Editar', edit_rol_path(@rol) %> |
 <%= link_to 'Volver', rols_path %>

@@ -6,6 +6,18 @@
 
 <h1> <%= @major.name %> </h1>
 <br>
-<p> <%= @major.school.name %> </p>
+<ul>
+	<il> <%= link_to "#{@major.school.name}", school_path(@major.school_id) %> </il>
+</ul>
+<br>
+<b> Materias de la carrera: </b>
+<!--
+<ul>
+	<%# CourseMajor.scoped_by_major_id(@major.id) do |course| %>
+	<il> <%#= link_to "#{course.name}", course_path(course) %> </il>
+	<%# end %>
+</ul>
+--><br><br>
+<br>
 <%= link_to 'Editar', edit_major_path(@major) %> |
 <%= link_to 'Volver', majors_path %>
