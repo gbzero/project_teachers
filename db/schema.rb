@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103234015) do
+ActiveRecord::Schema.define(version: 20131104231638) do
 
   create_table "comments", force: true do |t|
     t.integer  "teacher_id"
@@ -41,17 +41,18 @@ ActiveRecord::Schema.define(version: 20131103234015) do
     t.integer  "major_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "teacher_id"
   end
 
   add_index "courses", ["major_id"], name: "index_courses_on_major_id"
-  add_index "courses", ["teacher_id"], name: "index_courses_on_teacher_id"
 
   create_table "majors", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "school_id"
   end
+
+  add_index "majors", ["school_id"], name: "index_majors_on_school_id"
 
   create_table "rols", force: true do |t|
     t.string   "name"
@@ -75,12 +76,7 @@ ActiveRecord::Schema.define(version: 20131103234015) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.integer  "course_id_id"
-    t.integer  "course_id"
   end
-
-  add_index "teachers", ["course_id"], name: "index_teachers_on_course_id"
-  add_index "teachers", ["course_id_id"], name: "index_teachers_on_course_id_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -91,10 +87,11 @@ ActiveRecord::Schema.define(version: 20131103234015) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
-    t.integer  "major_id"
     t.integer  "rol_id"
+    t.integer  "school_id"
   end
 
   add_index "users", ["rol_id"], name: "index_users_on_rol_id"
+  add_index "users", ["school_id"], name: "index_users_on_school_id"
 
 end

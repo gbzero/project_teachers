@@ -69,6 +69,6 @@ class MajorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def major_params
-      params.require(:major).permit(:name)
+      params.require(:major).permit(:name, :school_id)
     end
 end

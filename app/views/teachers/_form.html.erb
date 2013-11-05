@@ -1,15 +1,7 @@
 <%= form_for(@teacher) do |f| %>
-  <% if @teacher.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
 
-      <ul>
-      <% @teacher.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'layouts/error_messages', object: @teacher %>
+
   <div class='field'>
     <%= f.label :name, 'Nombre' %><br>
     <%= f.text_field :name, class:'form-control' %>
@@ -25,14 +17,16 @@
     <%= f.text_field :second_last_name, class:'form-control' %>
   </div>
   <br>
+  <!--
   <div class='field'>
-    <%= f.label :course_id, 'Materias' %> <br>
-    <% Course.find_each do |course| %>
-      <%= check_box_tag 'teacher[course_id][]', course.id %>
+    <%= f.label 'Materias' %> <br>
+    <% Course.all.each do |course| %>
+      <%= check_box_tag 'courseTeachers[course_id][]', course.id %>
       <%= course.name %><br>
     <% end %>
   </div>
   <br>
+  -->
   <div class='field'>
     <%= f.label :picture, 'Imagen' %><br>
     <%= f.file_field :picture %>

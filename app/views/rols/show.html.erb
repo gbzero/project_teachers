@@ -6,5 +6,13 @@
 
 <h1> <%= @rol.name %> </h1>
 
+<b> Usuarios con este rol: </b>
+<ul>
+<% User.scoped_by_rol_id(@rol.id).each do |user| %>
+	<il>
+		<%= user.nickname %>, <%= user.full_name %>
+	</il>
+<% end %>
+</ul>
 <%= link_to 'Editar', edit_rol_path(@rol) %> |
 <%= link_to 'Volver', rols_path %>

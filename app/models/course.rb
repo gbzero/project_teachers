@@ -1,12 +1,8 @@
 class Course < ActiveRecord::Base
 
   has_many :comments
-  #has_and_belongs_to_many :teachers # Se convirtio en:
-  has_many :course_teachers
-  has_many :teachers, :through => :course_teachers
-
+  has_and_belongs_to_many :teachers
   has_and_belongs_to_many :majors
-  
 
   validates :name, format: { with: /\A[a-zA-Z|á|é|í|ó|ú|ü| |ñ]+\z/, message:'Nombre no valido'}
   validates :semester, format: { with: /^\d$/, message:'Semestre no valido', :multiline => true}

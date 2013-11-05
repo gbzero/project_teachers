@@ -5,6 +5,7 @@
 <% end %>
 
 <h1> <%= @major.name %> </h1>
-
+<br>
+<p> <%= @major.school.name %> </p>
 <%= link_to 'Editar', edit_major_path(@major) %> |
 <%= link_to 'Volver', majors_path %>

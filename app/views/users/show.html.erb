@@ -10,21 +10,21 @@
   <strong>Nombre:</strong>
   <%= @user.full_name %>
 </p>
-
-<p>
-  <strong>Carrera:</strong>
-  <%= :a ? @user.major.name : ' ' %>
-</p>
-
 <p>
   <strong>E-mail:</strong>
   <%= @user.email %>
 </p>
-
 <p>
   <strong>Contraseña:</strong>
-  <%= @user.password#, type: 'password' 
-  %>
+  <%= @user.password %>
+</p>
+<p>
+  <strong>Escuela:</strong>
+  <%= @user.school.name %>
+</p>
+<p>
+  <strong>Rol:</strong>
+  <%= @user.rol.name %>
 </p>
 
 <%= link_to 'Editar', edit_user_path(@user) %> |
