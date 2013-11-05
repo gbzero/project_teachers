@@ -11,6 +11,10 @@ COSAS QUE VI EN CLASES xD
 	Puma o unicorn. Para es bueno para correr código ruby pero malo para cosas estáticas como js y css.
 	Assets para rails son 3 cosas: css, js e imagenes.
 
+GIT
+	Agregar un algo 
+		$ git remote add <NOMBRE> <URI>  ## $ git remote add heroku git@heroku.com:post-t.git
+
 HEROKU
 	Para instalarlo pones en terminal
 		gem install heroku
