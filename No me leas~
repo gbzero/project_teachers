@@ -31,7 +31,7 @@ HEROKU
 			heroku db:pull
 		Poner en mantenimiento a la pagina
 			heroku maintenance:[on|off] # ON pone en mantenimiento
-	heroku:logs
+
 
 CSS
 	Un CSS Reset es poner todo en lo más básico, en stylesheets/application.css va al principio 

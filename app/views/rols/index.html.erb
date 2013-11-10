@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @rols.each do |rol| %>
+    <% @rols.order('name').each do |rol| %>
       <tr>
         <td><%= link_to "#{rol.name}", rol_path(rol) %></td>
         <td><%= link_to 'Editar', edit_rol_path(rol) %></td>

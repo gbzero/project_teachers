@@ -16,8 +16,9 @@
 </p>
 <p>
   <strong>Contraseña:</strong>
-  <% @user.password.scan( /./ ) do |letra| %>
-    *
+  <% unless @user.password_hash.nil? %>
+  <%# @user.password.scan( /./ ) do |letra| %>
+    * * * * * * * * 
   <% end %>
 </p>
 <p>

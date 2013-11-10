@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @majors.each do |major| %>
+    <% @majors.order('name').each do |major| %>
       <tr>
         <td><%= link_to "#{major.name}", major %></td>
         <td><%= link_to 'Editar', edit_major_path(major) %></td>

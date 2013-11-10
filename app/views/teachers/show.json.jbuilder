@@ -1,1 +1,1 @@
-json.extract! @teacher, :name, :last_name, :second_last_name, :created_at, :updated_at, :course_id
+json.extract! @teacher, :full_name

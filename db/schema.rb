@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104231638) do
+ActiveRecord::Schema.define(version: 20131110021500) do
 
   create_table "comments", force: true do |t|
     t.integer  "teacher_id"
@@ -83,12 +83,13 @@ ActiveRecord::Schema.define(version: 20131104231638) do
     t.string   "last_name"
     t.string   "second_last_name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
     t.integer  "rol_id"
     t.integer  "school_id"
+    t.string   "password_salt"
   end
 
   add_index "users", ["rol_id"], name: "index_users_on_rol_id"

@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.order('name, last_name, second_last_name').each do |user| %>
       <tr>
         <td><%= link_to "#{user.nickname}", user_path(user) %></td>
         <td><%= user.name %></td>

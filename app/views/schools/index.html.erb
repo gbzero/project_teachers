@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @schools.each do |school| %>
+    <% @schools.order('name').each do |school| %>
       <tr>
         <td><%= link_to "#{school.name}", school_path(school) %></td>
         <td><%= link_to 'Editar', edit_school_path(school) %></td>

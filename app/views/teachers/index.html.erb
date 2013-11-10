@@ -5,19 +5,15 @@
 <table class='table table-striped table-bordered table-hover'>
 <thead>
   <tr>
-    <th width='28%'> Nombre </th>
-    <th width='28%'> Apehido materno </th>
-    <th width='28%'> Apehido paterno </th>
+    <th width='74%'> Nombre </th>
     <th width='8%'></th>
     <th width='8%'></th>
   </tr>
 </thead>
 <tbody>
-  <% @teachers.each do |teacher| %>
+  <% @teachers.order('name').each do |teacher| %>
     <tr>
-      <td><%= link_to "#{teacher.name}", teacher_path(teacher.id) %></td>
-      <td><%= teacher.last_name %> </td>
-      <td><%= teacher.second_last_name %></td>
+      <td><%= link_to "#{teacher.full_name}", teacher_path(teacher.id) %></td>
       <td><%= link_to 'Editar', edit_teacher_path(teacher) %></td>
       <td><%= link_to 'Eliminar', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>

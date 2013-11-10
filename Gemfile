@@ -4,10 +4,12 @@ gem 'jquery-rails'
 gem 'paperclip', '~> 3.0'
 gem 'sass-rails', '>= 3.2'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+gem 'heroku'
 gem 'aws-sdk', '~> 1.5.0'  # Para subir a heroku
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
+# Emmm algo
+gem 'bcrypt-ruby', require: 'bcrypt'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
