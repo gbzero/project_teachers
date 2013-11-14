@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   belongs_to :rol
   belongs_to :school
-  has_many :comments
+  #has_many :comments
 
   attr_accessor :password, :password_confirmation
 
@@ -30,6 +30,15 @@ class User < ActiveRecord::Base
         self.password_salt = BCrypt::Engine.generate_salt
         self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
       end
+    end
+  end
+
+  def self.authenticate(nickname, password)
+    user = User.find_by_nickname(nickname)
+    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+      user
+    else
+      nil
     end
   end
 

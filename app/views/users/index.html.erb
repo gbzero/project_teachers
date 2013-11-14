@@ -21,11 +21,11 @@
         <td><%= user.last_name %></td>
         <td><%= user.second_last_name %></td>
         <td><%= link_to 'Editar', edit_user_path(user) %></td>
-        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <% end %>
 <br>
-<button class='btn btn-primary btn-sm' type='button' onclick="window.location.href='<%= new_user_path %>'" > Nuevo </button>
+<button class='btn btn-primary btn-sm' type='button' onclick="window.location.href='<%= sign_up_path %>'" > Nuevo </button>

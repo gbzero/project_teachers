@@ -1,0 +1,22 @@
+<h1>Log in</h1>
+
+<%= form_tag sessions_path do %>
+	
+	<% flash.each do |name, msg| %>
+	  <%= content_tag :div, msg, :id => "flash_#{msg}", class: 'alert alert-dismissable alert-danger'%>
+	<% end %>
+	<span class='col-lg-2'>
+	</span>
+	<span class='col-lg-4'>
+	<div class='field'>
+		<%= label_tag :nickname, 'Mote' %>
+		<%= text_field_tag :nickname, '', class:'form-control' %>
+	</div>
+	<div class='field'>
+		<%= label_tag :password, 'Contraseña' %>
+		<%= password_field_tag :password, '', class:'form-control' %>
+	</div>
+	<br>
+	<button type='submit' class='btn btn-primary btn-sm' > Entrar </button>
+	</span>
+<% end %>

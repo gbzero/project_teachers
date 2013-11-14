@@ -16,11 +16,11 @@
   <tbody>
     <% @courses.order('name').each do |course| %>
       <tr>
-        <td><%= link_to "#{course.name}", course_path(course.id) %></td>
-        <td><%= course.major_id %></td>
-        <td><%= course.semester %></td>
-        <td><%= link_to 'Editar', edit_course_path(course) %></td>
-        <td><%= link_to 'Eliminar', course, method: :delete, data: { confirm: '¿Seguro?' } %></td>
+        <td> <%= link_to "#{course.name}", course_path(course.id) %> </td>
+        <td> <% unless course.major_id.nil? %> <%= course.major.name %> <% end %> </td>
+        <td> <%= course.semester %> </td>
+        <td> <%= link_to 'Editar', edit_course_path(course) %> </td>
+        <td> <%= link_to 'Eliminar', course, method: :delete, data: { confirm: '¿Seguro?' } %> </td>
       </tr>
     <% end %>
   </tbody>
