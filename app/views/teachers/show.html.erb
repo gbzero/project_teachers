@@ -8,21 +8,19 @@
 	<%= link_to @teacher.picture.url do %>
 		<%= image_tag @teacher.picture.url(:mini) %>
 	<% end %>
-	<br>
-	<br>
-	<br>
+</div>
+<div class='col-md-9'>
+	<h1> <%= @teacher.full_name %> </h1>
 	<% if @teacher.courses.length <= 0 %>
 		<p class='text-danger'> No hay materias asignadas </p>
 	<% else %>
+	Materias que imparte:
 	<ul>
 		<% @teacher.courses.each do |course| %>
 			<li> <%= course.name %> </li>
 		<% end %>
 	</ul>
 	<% end %>
-</div>
-<div class='col-md-9'>
-	<h1> <%= @teacher.full_name %> </h1>
 	<%= link_to 'Editar', edit_teacher_path(@teacher) %> |
 	<%= link_to 'Volver', teachers_path %> <br>
 	<br>
