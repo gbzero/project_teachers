@@ -25,7 +25,6 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
-    
     respond_to do |format|
       if @teacher.save
         format.html { redirect_to @teacher, notice: 'Maestro creado correctamente.' }
@@ -40,7 +39,8 @@ class TeachersController < ApplicationController
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
   def update
-    params[:teacher][:course_ids] ||= []
+    #params[:teacher][:course_ids] ||= []
+    @teacher.course_ids = @teacher.course_ids.nil? || []
     respond_to do |format|
       if @teacher.update(teacher_params)
         format.html { redirect_to @teacher, notice: 'Maestro actualizado correctamente.' }
@@ -70,6 +70,8 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:name, :last_name, :second_last_name, :picture)
+      params.require(:teacher).permit(:name, :last_name, :second_last_name, :picture, :course_ids, :courses 
+        #, courses_teachers_attributes: [:teacher_id, :course_id]
+        )
     end
 end

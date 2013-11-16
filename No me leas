@@ -1,19 +1,22 @@
 Para que no mende error con el js
 #   sudo apt-get install nodejs  
 
+
 El push es para subir 
 El pull es para bajar
 
-COSAS QUE VI EN CLASES xD
 
+COSAS QUE VI EN CLASES xD
 	database.yml lo configura heroku el sólito por mi.
 	Apache o nginx.
 	Puma o unicorn. Para es bueno para correr código ruby pero malo para cosas estáticas como js y css.
 	Assets para rails son 3 cosas: css, js e imagenes.
 
+
 GIT
 	Agregar un algo 
 		$ git remote add <NOMBRE> <URI>  ## $ git remote add heroku git@heroku.com:post-t.git
+
 
 HEROKU
 	Para instalarlo pones en terminal
@@ -26,17 +29,26 @@ HEROKU
 		5. heroku run rake db:migrate	# Actualiza la base de datos
 	Comandos felices
 		Envia la base de datos local al servidor
-			heroku db:push	
+			heroku db:push --confirm post-t	
 		Copia la base de datos del servidor
 			heroku db:pull
 		Poner en mantenimiento a la pagina
 			heroku maintenance:[on|off] # ON pone en mantenimiento
-	heroku:logs
+		Ver que esta pasando en heroku
+			heroku logs	
+	Para que funcione heroku db[push|pull]
+		$ heroku plugins:install https://github.com/heroku/heroku-legacy-taps.git
+		# $ gem install heroku taps sequel
+
+
 
 CSS
 	Un CSS Reset es poner todo en lo más básico, en stylesheets/application.css va al principio 
 		el *= require bootstrap porque siempre hace un reset al inicio. 
 
+
+GEOCODER
+	Guardas latitud y longitud y saca distancias
 
 
 En la linea de comandos
@@ -51,6 +63,8 @@ ANGULAR  { Sirve para modificar cosas[variables] en tiempo real }
 	Probar el hola mundo de la pagina de angular.  # 
 	Tiene que tener otra cosa xD 
 
+
 COSAS
 	gem 'omniauth-facebook' # Para autentificarte con facebook
 	
+Gema devise para los correos y ser felices para invitarlos y se puden conectar con la cuenta de google

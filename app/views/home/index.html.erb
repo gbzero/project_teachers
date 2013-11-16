@@ -1,4 +1,7 @@
 <div class='col-md-6'>
+	<% flash.each do |name, msg| %>
+  		<%= content_tag :div, msg, :id => "flash_#{msg}", class: 'alert alert-dismissable alert-success'%>
+	<% end %>
 	<h1>Bienvenido a post-T!</h1>
 	<p align='justify'> Aún no tenemos nuestra pagina funcionando pero espera, pronto estaremos contigo. </p>
 	<h4>¿Para quién va dirigida esta página?</h4>

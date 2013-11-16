@@ -9,7 +9,15 @@
 		<%= image_tag @teacher.picture.url(:mini) %>
 	<% end %>
 	<br>
-	<%# Courses.find_by_teacher_id(@teacher.id) %>
+	<br>
+	<br>
+	<% unless @teacher.course_ids.nil? %>
+		<p class='text-danger'> No hay materias asignadas </p>
+	<% else %>
+		<% @teacher.courses.each do |course| %>
+			<%= course.name %>
+		<% end %>
+	<% end %>
 </div>
 <div class='col-md-9'>
 	<h1> <%= @teacher.full_name %> </h1>

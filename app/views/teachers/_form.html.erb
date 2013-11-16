@@ -16,9 +16,11 @@
   </div>
   <div class='field'>
     <%= f.label 'Materias' %> <br>
-    <% Course.all.each do |course| %>
-      <%= check_box_tag 'courseTeachers[course_id][]', course.id %>
-      <%= course.name %><br>
+    <% for course in Course.all %>
+    <div>
+      <%= check_box_tag 'coursesTeachers[course_ids][]', course.id, @teacher.courses.include?(course.id) %>
+      <%= course.name %>
+    </div>
     <% end %>
   </div>
   <div class='field'>
