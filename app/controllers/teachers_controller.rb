@@ -25,6 +25,7 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
+    @teacher.update_attributes(teacher_params)
     respond_to do |format|
       if @teacher.save
         format.html { redirect_to @teacher, notice: 'Maestro creado correctamente.' }
@@ -39,8 +40,7 @@ class TeachersController < ApplicationController
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
   def update
-    #params[:teacher][:course_ids] ||= []
-    @teacher.course_ids = @teacher.course_ids.nil? || []
+    params[:teacher][:course_ids] ||= []
     respond_to do |format|
       if @teacher.update(teacher_params)
         format.html { redirect_to @teacher, notice: 'Maestro actualizado correctamente.' }

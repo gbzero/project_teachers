@@ -3,8 +3,6 @@ class Teacher < ActiveRecord::Base
   has_many :comments
   has_and_belongs_to_many :courses
   
-  attr_accessor :course_ids
-
   validates :name, length: { in: 5..25 }, format: { with: /\A[a-zA-Z|á|é|í|ó|ú|ü| |ñ]+\z/, message:'Nombre no valido'}
   validates :last_name, length: { in: 4..25 }, format: { with: /\A[a-zA-Z|á|é|í|ó|ú|ü| |ñ]+\z/, message:'Apellido paterno no valido'}
   validates :second_last_name, length: { in: 4..25 }, format: { with: /\A[a-zA-Z|á|é|í|ó|ú|ü| |ñ]*\z/, message:'Apellido materno no valido'}, if: :seco_last_name?

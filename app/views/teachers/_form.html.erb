@@ -18,7 +18,7 @@
     <%= f.label 'Materias' %> <br>
     <% for course in Course.all %>
     <div>
-      <%= check_box_tag 'coursesTeachers[course_ids][]', course.id, @teacher.courses.include?(course.id) %>
+      <%= check_box_tag 'teacher[course_ids][]', course.id, @teacher.courses.include?(course.id) %>
       <%= course.name %>
     </div>
     <% end %>
