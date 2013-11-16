@@ -11,12 +11,14 @@
 	<br>
 	<br>
 	<br>
-	<% unless @teacher.course_ids.nil? %>
+	<% if @teacher.courses.length <= 0 %>
 		<p class='text-danger'> No hay materias asignadas </p>
 	<% else %>
+	<ul>
 		<% @teacher.courses.each do |course| %>
-			<%= course.name %>
+			<li> <%= course.name %> </li>
 		<% end %>
+	</ul>
 	<% end %>
 </div>
 <div class='col-md-9'>
