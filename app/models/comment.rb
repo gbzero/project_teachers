@@ -7,7 +7,7 @@ class Comment < ActiveRecord::Base
   validates :teacher_id, format: { with: /\A\d+\z/, message:'Maestro no valido'}
   validates :course_id, format: { with: /\A\d+\z/, message: 'Materia no valido'}
   validates :user_id, format: { with: /\A\d+\z/, message:'Nombre no valido'}
-  validates :date_post, presence: true
-  validates :content, format: { with: /^[[:alpha:][^[[!-'][*-+][\--9][;-@][\[-`][{-~]]]]+$/u, message:'Nombre no valido',  multiline: true}
+  validates :date_post, presence: { message: 'La fecha no puede estar en blanco' }
+  validates :content, format: { with: /\A[a-z|A-Z|0-;|,|.| |á|é|í|ó|ú|ü]{,255}\z/, message:'Comentario no valido' }
 
 end

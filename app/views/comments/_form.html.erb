@@ -8,16 +8,11 @@
   </div>
   <div class='field'>
     <%= f.label :course_id, 'Materia' %><br>
-    <%= f.collection_select :course_id, Teacher.find(:teacher_id).courses, :id, :name, { prompt: true }, { class: 'form-control' } %>
+    <%= f.collection_select :course_id, Teacher.first.courses , :id, :name#, { prompt: true }, { class: 'form-control' } 
+    %>
   </div>
-  <div class='field'>
-    <%= f.label :user_id, 'Usuario' %><br>
-    <%= f.collection_select :user_id, Course.all, :id, :name, { prompt: true }, { class: 'form-control' } %>
-  </div>
-  <div class='field'>
-    Fecha <%= f.date_select :date_post %><br>
-    Usuario <%= f.collection_select :user_id, User.all, :id, :full_name, { prompt: true } %>
-  </div>
+  <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+  <%= f.hidden_field :date_post, :value => "#{Date.today}" %>
   <div class='field'>
     <%= f.label :content, 'Comentario' %><br>
     <%= f.text_area :content, class:'form-control', maxlength: '254', style: 'resize:none; width:450px; height:80px;' %>

@@ -3,28 +3,27 @@
   <%= render 'layouts/error_messages', object: @teacher %>
 
   <div class='field'>
-    <%= f.label :name, 'Nombre' %><br>
+    <%= f.label :name, 'Nombre' %>
     <%= f.text_field :name, class:'form-control' %>
   </div>
   <div class='field'>
-    <%= f.label :last_name, 'Apellido paterno' %><br>
+    <%= f.label :last_name, 'Apellido paterno' %>
     <%= f.text_field :last_name, class:'form-control' %>
   </div>
   <div class='field'>
-    <%= f.label :second_last_name, 'Apellido materno' %><br>
+    <%= f.label :second_last_name, 'Apellido materno' %>
     <%= f.text_field :second_last_name, class:'form-control' %>
   </div>
   <div class='field'>
     <%= f.label 'Materias' %> <br>
     <% for course in Course.all %>
-    <div>
-      <%= check_box_tag 'teacher[course_ids][]', course.id, @teacher.courses.include?(course.id) %>
-      <%= course.name %>
-    </div>
+      <%= check_box_tag 'teacher[course_ids][]', course.id #, @teacher.courses.include?(course.id) 
+      %>
+      <%= course.name %> <br>
     <% end %>
   </div>
   <div class='field'>
-    <%= f.label :picture, 'Imagen' %><br>
+    <%= f.label :picture, 'Imagen' %>
     <%= f.file_field :picture %>
   </div>
   <br>

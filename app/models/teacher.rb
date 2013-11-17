@@ -15,6 +15,6 @@ class Teacher < ActiveRecord::Base
 
   def seco_last_name?
   	self.second_last_name.length > 0
-  end
-  
+  end  
+
 end

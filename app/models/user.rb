@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   belongs_to :rol
   belongs_to :school
-  #has_many :comments
+  has_many :comments
 
   attr_accessor :password, :password_confirmation
 
