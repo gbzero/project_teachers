@@ -52,12 +52,18 @@ class User < ActiveRecord::Base
 
   def profesores
     pro = Hash.new
-    User.find(self.id).school.majors.each do |carrera| 
+    User.find(self.id).school.majors.each do |carrera|
       Major.find(carrera.id).courses.each do |materia|
-        pro = Course.find(materia.id).teachers.each
+        Course.find(materia.id).teachers do |profe|
+          pro = profe
+        end
       end
     end
     return pro
   end
+
+
+# liz, de lira, señor profesor, señor profesor, blanco, 
+# señor profesor, cardenas.
 
 end

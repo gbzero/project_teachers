@@ -11,13 +11,13 @@
 </ul>
 <br>
 <b> Materias de la carrera: </b>
-<!--
+
 <ul>
-	<%# CourseMajor.scoped_by_major_id(@major.id) do |course| %>
-	<il> <%#= link_to "#{course.name}", course_path(course) %> </il>
-	<%# end %>
+	<% Major.find(@major.id).courses.each do |major| %>
+	<li> <%= link_to "#{major.name}", course_path(major) %> </li>
+	<% end %>
 </ul>
---><br><br>
+<br>
 <br>
 <%= link_to 'Editar', edit_major_path(@major) %> |
 <%= link_to 'Volver', majors_path %>
