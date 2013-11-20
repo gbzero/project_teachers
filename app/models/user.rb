@@ -42,4 +42,22 @@ class User < ActiveRecord::Base
     end
   end
 
+  def materias
+    cour = Hash.new
+    User.find(self.id).school.majors.each do |carrera| 
+      cour = Major.find(carrera.id).courses.each
+    end
+    return cour
+  end
+
+  def profesores
+    pro = Hash.new
+    User.find(self.id).school.majors.each do |carrera| 
+      Major.find(carrera.id).courses.each do |materia|
+        pro = Course.find(materia.id).teachers.each
+      end
+    end
+    return pro
+  end
+
 end

@@ -21,14 +21,7 @@
 
 <div>
   <strong>Comentario:</strong><br>
-  <% largo = @comment.content.length %>
-  <% i = 0 %>
-  <% j = 50 %>
-  <% while i <= largo %>
-    <%= @comment.content[i..j] %> <br>
-    <% i = j+1 %>
-    <% j = i+50 %>
-  <% end %>
+  <%= @comment.contenido %>
 </div>
 <br>
 <%= link_to 'Editar', edit_comment_path(@comment) %> |

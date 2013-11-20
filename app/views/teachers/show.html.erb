@@ -8,20 +8,29 @@
 	<%= link_to @teacher.picture.url do %>
 		<%= image_tag @teacher.picture.url(:mini) %>
 	<% end %>
+	<br>
+	<br>
+	<%= link_to 'Editar', edit_teacher_path(@teacher) %> |
+	<%= link_to 'Volver', teachers_path %>
 </div>
 <div class='col-md-9'>
 	<h1> <%= @teacher.full_name %> </h1>
 	<% if @teacher.courses.length <= 0 %>
-		<p class='text-danger'> No hay materias asignadas </p>
+			<p class='text-danger'> No hay materias asignadas </p>
 	<% else %>
-	Materias que imparte:
-	<ul>
-		<% @teacher.courses.each do |course| %>
-			<li> <%= course.name %> </li>
+		<strong> Materias que imparte: </strong>
+		<ul>
+			<% @teacher.courses.each do |course| %>
+				<li> <%= course.name %> </li>
+			<% end %>
+		</ul>
+		<p align='middle'>
+		<button class='btn btn-primary btn-sm' type='button' onclick="window.location.href='<%= new_comment_path %>'" > Comentar </button>
+		</p>
+		<% Teacher.find(params[:id]).comments.order('created_at').each do |comment| %>
+			<br>
+			<i> <strong> <%= current_user.nickname %></strong></i>: 
+			<ul> <%= comment.contenido %> </ul>
 		<% end %>
-	</ul>
 	<% end %>
-	<%= link_to 'Editar', edit_teacher_path(@teacher) %> |
-	<%= link_to 'Volver', teachers_path %> <br>
-	<br>
 </div>

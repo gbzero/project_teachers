@@ -68,3 +68,17 @@ COSAS
 	gem 'omniauth-facebook' # Para autentificarte con facebook
 	
 Gema devise para los correos y ser felices para invitarlos y se puden conectar con la cuenta de google
+
+ALTERNATIVAS
+	De GIT 	
+		- svn(Aquí solo tienes la ultima versión), 
+		- perforce(más especifico),
+		- mercurial
+		- source safe team
+	De Ruby on rails
+		- ASP.Net
+		- MVC5
+		- Play
+		- Grails
+		- Django, Pyramid (Python)
+		- CAKE, (PHP)
