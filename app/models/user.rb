@@ -51,19 +51,21 @@ class User < ActiveRecord::Base
   end
 
   def profesores
-    pro = Hash.new
-    User.find(self.id).school.majors.each do |carrera|
-      Major.find(carrera.id).courses.each do |materia|
-        Course.find(materia.id).teachers do |profe|
-          pro = profe
+    pro = Array.new
+    p = Array.new
+
+    User.find(self.id).school.majors.each do |major|
+      Major.find(major.id).courses.each do |course|
+        Course.find(course.id).teachers.each do |teacher|
+            p = Teacher.find(teacher.id)
+            # Aquí debería ir el codigo para insertar todos los maestros en el Hash
+            pro.push(p)
         end
       end
     end
+    pro.uniq!
+    pro.sort_by! { |x| [x.name, x.last_name, x.second_last_name] }
     return pro
   end
-
-
-# liz, de lira, señor profesor, señor profesor, blanco, 
-# señor profesor, cardenas.
 
 end
