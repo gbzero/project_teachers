@@ -8,7 +8,7 @@ class Comment < ActiveRecord::Base
   validates :course_id, format: { with: /\A\d+\z/, message: 'Materia no valido'}
   validates :user_id, format: { with: /\A\d+\z/, message:'Nombre no valido'}
   validates :date_post, presence: { message: 'La fecha no puede estar en blanco' }
-  validates :content, format: { with: /\A[a-z|A-Z|0-;|,|.| |á|é|í|ó|ú|ü]{,255}\z/, message:'Comentario no valido' }
+  validates :content, format: { with: /\A[a-z|A-Z|0-;|,|.|ñ| |á|é|í|ó|ú|ü]{,255}\z/, message:'Comentario no valido' }
 
   def contenido
   	largo = self.content.length

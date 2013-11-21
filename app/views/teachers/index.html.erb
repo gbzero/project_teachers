@@ -11,7 +11,7 @@
   </tr>
 </thead>
 <tbody>
-  <% @teachers.order('name').each do |teacher| %>
+  <% current_user.profesores.each do |teacher| %>
     <tr>
       <td><%= link_to "#{teacher.full_name}", teacher_path(teacher.id) %></td>
       <td><%= link_to 'Editar', edit_teacher_path(teacher) %></td>

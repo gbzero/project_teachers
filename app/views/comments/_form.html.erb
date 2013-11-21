@@ -17,7 +17,7 @@
   <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
   <%= f.hidden_field :date_post, :value => "#{Date.today}" %>
   <div class='field'>
-    <%= f.label :content, 'Comentario' %><br>
+    <%= f.label :content, 'Comentario' %>
     <%= f.text_area :content, class:'form-control', maxlength: '254', style: 'resize:none; width:450px; height:80px;' %>
   </div>
   <br>
