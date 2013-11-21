@@ -7,35 +7,35 @@
     <%= f.text_field :nickname, class:'form-control' %>
   </div>
   <div class='field'>
-    <%= f.label :name, 'Nombre' %><br>
+    <%= f.label :name, 'Nombre' %>
     <%= f.text_field :name, class:'form-control' %>
   </div>
   <div class='field'>
-    <%= f.label :last_name, 'Apellido paterno' %><br>
+    <%= f.label :last_name, 'Apellido paterno' %>
     <%= f.text_field :last_name, class:'form-control' %>
   </div>
   <div class='field'>
-    <%= f.label :second_last_name, 'Apellido materno' %><br>
+    <%= f.label :second_last_name, 'Apellido materno' %>
     <%= f.text_field :second_last_name, class:'form-control' %>
   </div>
   <div class='field'>
-    <%= f.label :email, 'E-mail' %><br>
+    <%= f.label :email, 'E-mail' %>
     <%= f.text_field :email, class:'form-control' %>
   </div>
   <div class='field'>
-    <%= f.label :password, 'Contraseña' %><br>
+    <%= f.label :password, 'Contraseña' %>
     <%= f.password_field :password, class:'form-control' %>
   </div>
   <div class='field'>
-    <%= f.label :password_confirmation, 'Confirmar ontraseña' %><br>
+    <%= f.label :password_confirmation, 'Confirmar contraseña' %>
     <%= f.password_field :password_confirmation, class:'form-control' %>
   </div>
   <div class='field'>
-    <%= f.label :school_id, 'Escuela' %><br>
+    <%= f.label :school_id, 'Escuela' %>
     <%= f.collection_select :school_id, School.all, :id, :name, {prompt:true}, {:class => 'form-control'} %>
   </div>
   <div class='field'>
-    <%= f.label :rol_id, 'Rol' %><br>
+    <%= f.label :rol_id, 'Rol' %>
     <%= f.collection_select :rol_id, Rol.all, :id, :name, {prompt:true}, {:class => 'form-control'} %>
   </div>
   <br>

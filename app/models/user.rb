@@ -43,15 +43,18 @@ class User < ActiveRecord::Base
   end
 
   def materias
-    cour = Hash.new
+    cour = Array.new
     if self.rol.name == 'Administrador'
       cour = Course.all
     else
       User.find(self.id).school.majors.each do |carrera| 
-        cour = Major.find(carrera.id).courses.each
+        Major.find(carrera.id).courses.each do |materia|
+          cour.push(Course.find(materia))
+        end
       end
     end
-    return cour
+    cour.sort_by! { |x| [x.name] }
+  return cour
   end
 
   def profesores
@@ -60,12 +63,10 @@ class User < ActiveRecord::Base
       pro = Teacher.all
     else
       p = Array.new
-
       User.find(self.id).school.majors.each do |major|
         Major.find(major.id).courses.each do |course|
           Course.find(course.id).teachers.each do |teacher|
               p = Teacher.find(teacher.id)
-              # Aquí debería ir el codigo para insertar todos los maestros en el Hash
               pro.push(p)
           end
         end
