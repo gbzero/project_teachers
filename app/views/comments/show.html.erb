@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+  <div class="alert alert-dismissable alert-success">
+    <%= notice %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Teacher:</strong>
-  <%= @comment.teacher.name %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @comment.course.name %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @comment.user.name %>
-</p>
-
-<p>
-  <strong>Date post:</strong>
+<div>
+  <b>Fecha:</b>
   <%= @comment.date_post %>
-</p>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @comment.content %>
-</p>
+<div>
+  <strong>Profesor:</strong>
+  <%= @comment.teacher.full_name %>
+</div>
 
+<div>
+  <strong>Materia:</strong>
+  <%= @comment.course.name %>
+</div>
+
+<div>
+  <strong>Comentario:</strong><br>
+  <%= @comment.contenido %>
+</div>
+<br>
 <%= link_to 'Editar', edit_comment_path(@comment) %> |
 <%= link_to 'Volver', comments_path %>

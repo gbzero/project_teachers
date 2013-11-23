@@ -1,6 +1,6 @@
 <h1>Carreras</h1>
 <% if @majors.count <= 0 %> 
-  No hay carreras disponibles. <br>
+  <p class='text-danger'>No hay carreras disponibles.</p><br>
 <% else %>
   <table class='table table-striped table-bordered table-hover'>
     <thead>
@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @majors.each do |major| %>
+    <% @majors.order('name').each do |major| %>
       <tr>
         <td><%= link_to "#{major.name}", major %></td>
         <td><%= link_to 'Editar', edit_major_path(major) %></td>

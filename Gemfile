@@ -2,9 +2,12 @@ source 'https://rubygems.org'
 
 gem 'jquery-rails'
 gem 'paperclip', '~> 3.0'
-gem 'sass-rails', '>= 3.2'
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
-gem 'aws-sdk', '~> 1.5.0'  # Para subir a heroku
+gem 'bootstrap-sass'#, github: 'thomas-mcdonald/bootstrap-sass'
+
+# Para subir a heroku
+gem 'heroku'
+gem 'aws-sdk', '~> 1.5.0'  
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -17,6 +20,7 @@ group :production do
 end
 # Use SCSS for stylesheets
 #gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '>= 3.2'
 
 # Use Uglifier as compressor for JavaScript assets
 #gem 'uglifier', '>= 1.3.0'
@@ -41,8 +45,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
+# Use ActiveModel has_secure_password  # Para encriptar
 # gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', require: 'bcrypt'
 
 # Use unicorn as the app server
 # gem 'unicorn'

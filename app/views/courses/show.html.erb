@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+	<div class="alert alert-dismissable alert-success">
+		<%= notice %>
+	</div>
+<% end %>
 
 <h1> <%= @course.name %> </h1>
 
@@ -9,7 +13,9 @@
 
 <p>
   <strong>Carrera:</strong>
-  <%= @course.major.name %>
+  <% unless @course.major_id.nil? %>
+  	<%= @course.major.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Volver', courses_path %>

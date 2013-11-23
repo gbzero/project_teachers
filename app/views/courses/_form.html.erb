@@ -1,14 +1,6 @@
 <%= form_for(@course) do |f| %>
-  <% if @course.errors.any? %>
-    <div id='error_explanation'>
-      <h2><%= pluralize(@course.errors.count, 'error') %> prohibited this course from being saved:</h2>
-      <ul>
-      <% @course.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    
+  <%= render 'layouts/error_messages', object: @course %>
 
   <div class='field'>
     <%= f.label :name, 'Nombre' %><br>
@@ -20,7 +12,8 @@
   </div>
     <div class='field'>
     <%= f.label :semester, 'Semestre' %><br>
-    <%= f.number_field :semester, class: 'form-control' %>
+    <%#= f.number_field :semester, class: 'form-control' %>
+    <%= f.select :semester, ( (1..9).map { |i| [i,i] } ), { prompt: true }, { class: 'form-control' } %>
   </div>
   <br>
   <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>

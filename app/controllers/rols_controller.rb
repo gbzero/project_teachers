@@ -28,7 +28,7 @@ class RolsController < ApplicationController
 
     respond_to do |format|
       if @rol.save
-        format.html { redirect_to @rol, notice: 'Rol was successfully created.' }
+        format.html { redirect_to @rol, notice: 'Rol creado correctamente.' }
         format.json { render action: 'show', status: :created, location: @rol }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class RolsController < ApplicationController
   def update
     respond_to do |format|
       if @rol.update(rol_params)
-        format.html { redirect_to @rol, notice: 'Rol was successfully updated.' }
+        format.html { redirect_to @rol, notice: 'Rol actualizado correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

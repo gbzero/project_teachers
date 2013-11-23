@@ -9,19 +9,44 @@
   	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div class='navbar navbar-default'>
-		<div class='container'> <%= render 'layouts/navbar' %> </div>
+	<div class='nav navbar-default navbar-inner'>
+		<%= render 'layouts/navbar' %>
 	</div>
 	<div class='container'>
 		<div class='row'>
-			<div class='col-md-2'> <%= render 'layouts/sidebar' %> </div>
-			<div class='col-md-10'> <%= yield %> </div>
+			<div class='col-md-2'> 
+				<% if current_user %>
+					<%= render 'layouts/sidebar' %>
+				<% else %>
+				  <br>  <br> <br> <br> <br>
+					<%= form_tag sessions_path do %>
+						<% flash.each do |name, msg| %>
+						  <%= content_tag :div, msg, :id => "flash_#{msg}", class: 'alert alert-dismissable alert-danger'%>
+						<% end %>
+						
+						<%= label_tag :nickname, 'Mote' %> 
+						<%= text_field_tag :nickname, '', class:'form-control' %>
+						<%= label_tag :password, 'Contraseña' %>
+						<%= password_field_tag :password, '', class:'form-control' %>
+						<br>
+						<button type='submit' class='btn btn-primary btn-sm' > Entrar </button>
+						
+					<% end %>
+				<% end %>
+			</div>
+			<% if current_user %>
+				<div class='col-md-10'> 
+					<%= yield %> 
+				</div>
+			<% else %>
+				<div class='col-md-12'> <%= render 'layouts/without_log_in' %> </div>
+			<% end %>
 		</div>
 	</div>
 </body>
 <footer>
 	<div class="row">
 	<div class="col-lg-12">
-	<p align='center'> Post-T! &#174; 2013 </p>
+	<p align='center'> Post-T! -<!-- &#169; --> 2013 </p>
 </footer>
 </html>

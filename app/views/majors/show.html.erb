@@ -1,6 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+	<div class="alert alert-dismissable alert-success">
+		<%= notice %>
+	</div>
+<% end %>
 
 <h1> <%= @major.name %> </h1>
+<br>
+<ul>
+	<il> <%= link_to "#{@major.school.name}", school_path(@major.school_id) %> </il>
+</ul>
+<br>
+<b> Materias de la carrera: </b>
 
+<ul>
+	<% Major.find(@major.id).courses.each do |major| %>
+	<li> <%= link_to "#{major.name}", course_path(major) %> </li>
+	<% end %>
+</ul>
+<br>
+<br>
 <%= link_to 'Editar', edit_major_path(@major) %> |
 <%= link_to 'Volver', majors_path %>

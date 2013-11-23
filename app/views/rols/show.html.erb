@@ -1,6 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+	<div class="alert alert-dismissable alert-success">
+		<%= notice %>
+	</div>
+<% end %>
 
 <h1> <%= @rol.name %> </h1>
-
+<br>
+<b> Gente con este rol: </b>
+<ul>
+<% User.scoped_by_rol_id(@rol.id).each do |user| %>
+	<il>
+		<%= link_to "#{user.nickname}", user_path(user) %>
+	</il>
+<% end %>
+</ul>
+<br>
 <%= link_to 'Editar', edit_rol_path(@rol) %> |
 <%= link_to 'Volver', rols_path %>

@@ -1,3 +1,18 @@
-<div class='navbar-header'>
-	<a class='navbar-brand' href='../'> <%= image_tag '/pira01.png', size: '30x25', class:'vol_horizontal'%> Post-T</a>
+<div class='container'>
+	<a class='navbar-brand' href='../'> <%= image_tag '/pira01.png', size: '30x25', class:'vol_horizontal'%> Post-T </a>
+	<div class='nav nav-collapse'>
+    <ul class='nav navbar-nav navbar-right'>
+    <% if current_user %>
+    	<li class= 'dropdown'> 
+    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				<span class='text-success'> <%= current_user.nickname %> </span>
+			<b class="caret"></b> 
+			</a>
+			<ul class="dropdown-menu">
+      	<li> <%= link_to 'Salir', "#{log_out_path}" %> </li>
+	   	</ul>
+    	</li>
+		<% end %>
+   	</ul>
+  </div>
 </div>

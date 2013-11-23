@@ -1,6 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+	<div class="alert alert-dismissable alert-success">
+		<%= notice %>
+	</div>
+<% end %>
 
 <h1> <%= @school.name %> </h1>
-
+<br>
+<b>Materias impartidas:</b>
+<ul>
+	<il>
+	<% Major.scoped_by_school_id(@school.id).each do |major| %>
+		<%= link_to "#{major.name}", major_path(major) %>
+	<% end %>
+	</il>
+</ul>
+<br>
 <%= link_to 'Editar', edit_school_path(@school) %> |
 <%= link_to 'Volver', schools_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024225519) do
+ActiveRecord::Schema.define(version: 20131116013403) do
 
   create_table "comments", force: true do |t|
     t.integer  "teacher_id"
@@ -37,11 +37,19 @@ ActiveRecord::Schema.define(version: 20131024225519) do
 
   add_index "courses", ["major_id"], name: "index_courses_on_major_id"
 
+  create_table "courses_teachers", id: false, force: true do |t|
+    t.integer "course_id"
+    t.integer "teacher_id"
+  end
+
   create_table "majors", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "school_id"
   end
+
+  add_index "majors", ["school_id"], name: "index_majors_on_school_id"
 
   create_table "rols", force: true do |t|
     t.string   "name"
@@ -65,6 +73,7 @@ ActiveRecord::Schema.define(version: 20131024225519) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "course_ids"
   end
 
   create_table "users", force: true do |t|
@@ -72,11 +81,16 @@ ActiveRecord::Schema.define(version: 20131024225519) do
     t.string   "last_name"
     t.string   "second_last_name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nickname"
-    t.integer  "major_id"
+    t.integer  "rol_id"
+    t.integer  "school_id"
+    t.string   "password_salt"
   end
+
+  add_index "users", ["rol_id"], name: "index_users_on_rol_id"
+  add_index "users", ["school_id"], name: "index_users_on_school_id"
 
 end

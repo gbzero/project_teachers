@@ -1,18 +1,18 @@
 <h1>Roles</h1>
 <% if @rols.count <= 0 %>
-  No hay roles disponibles.<br>
+  <p class='text-danger'>No hay roles disponibles.</p><br>
 <% else %>
 <table class='table table-striped table-bordered table-hover'>
   <thead>
     <tr>
-      <th width='84%'>Nombre</th>
+      <th width='42%'>Rol</th>
       <th width='8%'></th>
       <th width='8%'></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @rols.each do |rol| %>
+    <% @rols.order('name').each do |rol| %>
       <tr>
         <td><%= link_to "#{rol.name}", rol_path(rol) %></td>
         <td><%= link_to 'Editar', edit_rol_path(rol) %></td>
