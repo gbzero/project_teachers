@@ -15,3 +15,18 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+jQuery(function($) {
+  // when the #country field changes
+  $("#comment_teacher_id").change(function() {
+    // make a POST call and replace the content
+    var teacher = $('select#comment_teacher_id :selected').val();
+    if(teacher == "") teacher="0";
+    jQuery.get('/comments/update_courses/' + teacher, function(data){
+        $("#comment_course_id").html(data);
+    })
+    return false;
+  });
+
+})
+

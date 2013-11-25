@@ -4,10 +4,14 @@ ProjectTeacher::Application.routes.draw do
   get 'log_out' => 'sessions#destroy', as: 'log_out'
   
   get 'sign_up' => 'users#new', as: 'sign_up'
+  
+  get 'comments/update_courses/:id' => 'comments#update_courses'
 
   resources :schools
 
   resources :comments
+
+  #get 'comments/update_courses/:id', :controller=>'comments', :action => 'update_courses'
 
   resources :teachers
 
