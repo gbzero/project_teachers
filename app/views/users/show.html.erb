@@ -33,7 +33,7 @@
 <% if @user.invitation_limit.nil? || @user.invitation_limit > 0 %>
   <ul> 
     <%=link_to 'Manda una invitación', new_invitation_path %> 
-    (Te quedan <%= if @user.invitation_limit.nil? then 5 else @user.invitation_limit end %> invitaciones) 
+    (Te quedan <%= if @user.invitation_limit.nil? then 0 else @user.invitation_limit end %> invitaciones) 
   </ul>
 <%end %>
 <br>

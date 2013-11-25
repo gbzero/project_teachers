@@ -11,19 +11,24 @@ class User < ActiveRecord::Base
   before_create :set_invitation_limit
   before_save :encrypt_password
 
-  validates :password, confirmation: true, format: { with: /\A[a-z|A-Z|0-9|-]{6,20}\z/x, message:'Contraseña no valida' }
+  validates :password,  confirmation: true, 
+                        format: { with: /\A[a-z|A-Z|0-9|-]{6,20}\z/x, message:'Contraseña no valida' }
   validates :password_confirmation, presence: true
   validates :name, format: { with: /\A[a-zA-Z|á|é|í|ó|ú|ü| |ñ]+\z/, message:'Nombre no valido'}
   validates :last_name, format: { with: /\A[a-zA-Z|á|é|í|ó|ú|ü| |ñ]+\z/, message:'Apellido paterno no valido'}
-  validates :second_last_name, format: { with: /\A[a-zA-Z|á|é|í|ó|ú|ü| |ñ]+\z/, message:'Apellido materno no valido'}, if: :seco_last_name?
+  validates :second_last_name,  format: { with: /\A[a-zA-Z|á|é|í|ó|ú|ü| |ñ]+\z/, message:'Apellido materno no valido'}, 
+                                if: :seco_last_name?
   validates :email, uniqueness: { message: 'Ese e-mail ya esta siendo utilizado' }, 
             format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,5})\Z/i, message: 'E-mail no valido'}
-  validates :nickname, length: { in: 4..15, message: 'Mote fuera de rango' }, uniqueness: { message: 'Ese mote ya esta siendo utilizado'}, 
-            format: { with: /\A[a-zA-Z|0-9|-]+\z/, message: 'Mote no valido'}, if: :admin?
+  validates :nickname,  length: { in: 4..15, message: 'Mote fuera de rango' }, 
+                        uniqueness: { message: 'Ese mote ya esta siendo utilizado'}, 
+                        format: { with: /\A[a-zA-Z|0-9|-]+\z/, message: 'Mote no valido'}, 
+                        if: :admin?
   validates :school_id, format: { with: /\A\d+\z/, message:'Escuela no valida'}
   validates :rol_id, format: { with: /\A\d+\z/, message:'Rol no valido'}
-  validates_presence_of :invitation_id, :message => 'is required'
-  validates_uniqueness_of :invitation_id
+  validates :invitation_id, presence: { message: 'Se requiere una invitacion'}, 
+                            uniqueness: { message: 'La invitacion ya ha sido utilizada antes' }, 
+                            if: :registred?
 
   def full_name
     "#{name} #{last_name} #{second_last_name}"
@@ -33,16 +38,24 @@ class User < ActiveRecord::Base
     self.invitation_limit = 5
   end
   
-    def invitation_token
-  invitation.token if invitation
-end
+  def invitation_token
+    invitation.token if invitation
+  end
 
-def invitation_token=(token)
-  self.invitation = Invitation.find_by_token(token)
-end
+  def invitation_token=(token)
+    self.invitation = Invitation.find_by_token(token)
+  end
 
   def seco_last_name?
     self.second_last_name.length > 0
+  end
+
+  def registred? #Si es un usuario refistrado devuelve falso
+    if self.id.nil? 
+      return false
+    else
+      return true
+    end
   end
 
   def encrypt_password
