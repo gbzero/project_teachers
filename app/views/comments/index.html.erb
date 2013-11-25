@@ -2,7 +2,7 @@
 <% if @comments.nil? || @comments.count <= 0 %>
   <p class='text-danger'> No hay comentarios disponibles.</p>
 <% else %>
-  <% if current_user.admin %>
+  <% if current_user.admin? %>
     <%= render 'admin' %>
   <% else %>
     <%= render 'user' %>
