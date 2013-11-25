@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   
   <%= render 'layouts/error_messages', object: @user %>
-
+<%= f.hidden_field :invitation_token %>
   <div class='field'>
     <%= f.label :nickname, 'Mote' %>
     <%= f.text_field :nickname, class:'form-control' %>

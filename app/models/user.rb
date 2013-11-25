@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   belongs_to :school
   has_many :comments
 
-  attr_accessor :password, :password_confirmation
+  attr_accessor :password, :password_confirmation, :invitation_token
 
   before_save :encrypt_password
 
@@ -19,10 +19,30 @@ class User < ActiveRecord::Base
             format: { with: /\A[a-zA-Z|0-9|-]+\z/, message: 'Mote no valido'}
   validates :rol_id, format: { with: /\A\d+\z/, message:'Rol no valido'}
   validates :school_id, format: { with: /\A\d+\z/, message:'Escuela no valida'}
-
+  
+  validates_presence_of :invitation_id, :message => 'is required'
+  validates_uniqueness_of :invitation_id
+  
+  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
+  belongs_to :invitation
+  before_create :set_invitation_limit
+  
+  
   def full_name
     "#{name} #{last_name} #{second_last_name}"
   end
+  
+  def set_invitation_limit
+    self.invitation_limit = 5
+  end
+  
+    def invitation_token
+  invitation.token if invitation
+end
+
+def invitation_token=(token)
+  self.invitation = Invitation.find_by_token(token)
+end
 
   def encrypt_password
     if password == password_confirmation
