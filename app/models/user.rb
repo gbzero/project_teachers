@@ -85,6 +85,11 @@ class User < ActiveRecord::Base
     self.rol.name == 'Administrador'
   end
 
+  def comun?
+    a = id_rol_usuario
+    self.rol_id == a  
+  end
+
   def admin?
     a = self.id_admin
     self.rol_id == a
