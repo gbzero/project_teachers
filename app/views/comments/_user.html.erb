@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-	<% @comments.order('updated_at').where('user_id = ?', current_user.id).each do |comment| %>
+	<% @comments.order('id').where('user_id = ?', current_user.id).each do |comment| %>
   <tr>
     <td><%= link_to comment.teacher.full_name, teacher_path(comment.teacher.id) %></td>
     <td><%= link_to comment.course.name, course_path(comment.course.id)%></td>
