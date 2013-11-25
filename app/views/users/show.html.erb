@@ -30,6 +30,11 @@
     <%= @user.rol.name %>
   <% end %>
 </p>
+<% if @user.invitation_limit > 0 %>
+<p><%=link_to 'Mandar una invitacion', new_invitation_path %>
+(<%= @user.invitation_limit %>)
+ </p>
+<%end %>
 <br>
 <%= link_to 'Editar', edit_user_path(@user) %> |
 <%= link_to 'Volver', users_path %>

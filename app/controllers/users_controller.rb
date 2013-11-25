@@ -14,7 +14,8 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+      @user = User.new(:invitation_token => params[:invitation_token])
+      @user.email = @user.invitation.recipient_email if @user.invitation
   end
 
   # GET /users/1/edit
@@ -72,4 +73,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :last_name, :second_last_name, 
         :email, :password, :password_confirmation, :nickname, :rol_id, :school_id)
     end
+
 end

@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131125001016) do
 
   create_table "abilities", force: true do |t|
   end
+=======
+ActiveRecord::Schema.define(version: 20131124032247) do
+>>>>>>> 52bb49b8d2d6f695e0535b0f6e5df36f779fd779
 
   create_table "comments", force: true do |t|
     t.integer "teacher_id"
@@ -39,6 +43,16 @@ ActiveRecord::Schema.define(version: 20131125001016) do
   create_table "courses_teachers", id: false, force: true do |t|
     t.integer "course_id"
     t.integer "teacher_id"
+  end
+
+  create_table "invitations", force: true do |t|
+    t.integer  "sender_id"
+    t.string   "recipient_email"
+    t.string   "token"
+    t.datetime "sent_at"
+    t.string   "new"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "majors", force: true do |t|
@@ -67,6 +81,7 @@ ActiveRecord::Schema.define(version: 20131125001016) do
   end
 
   create_table "users", force: true do |t|
+<<<<<<< HEAD
     t.string  "name"
     t.string  "last_name"
     t.string  "second_last_name"
@@ -76,6 +91,21 @@ ActiveRecord::Schema.define(version: 20131125001016) do
     t.integer "rol_id"
     t.integer "school_id"
     t.string  "password_salt"
+=======
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "second_last_name"
+    t.string   "email"
+    t.string   "password_hash"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "nickname"
+    t.integer  "rol_id"
+    t.integer  "school_id"
+    t.string   "password_salt"
+    t.integer  "invitation_id"
+    t.integer  "invitation_limit"
+>>>>>>> 52bb49b8d2d6f695e0535b0f6e5df36f779fd779
   end
 
   add_index "users", ["rol_id"], name: "index_users_on_rol_id"
