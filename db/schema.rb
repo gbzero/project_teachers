@@ -11,14 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131125001016) do
 
   create_table "abilities", force: true do |t|
   end
-=======
-ActiveRecord::Schema.define(version: 20131124032247) do
->>>>>>> 52bb49b8d2d6f695e0535b0f6e5df36f779fd779
 
   create_table "comments", force: true do |t|
     t.integer "teacher_id"
@@ -81,7 +77,6 @@ ActiveRecord::Schema.define(version: 20131124032247) do
   end
 
   create_table "users", force: true do |t|
-<<<<<<< HEAD
     t.string  "name"
     t.string  "last_name"
     t.string  "second_last_name"
@@ -91,21 +86,8 @@ ActiveRecord::Schema.define(version: 20131124032247) do
     t.integer "rol_id"
     t.integer "school_id"
     t.string  "password_salt"
-=======
-    t.string   "name"
-    t.string   "last_name"
-    t.string   "second_last_name"
-    t.string   "email"
-    t.string   "password_hash"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "nickname"
-    t.integer  "rol_id"
-    t.integer  "school_id"
-    t.string   "password_salt"
-    t.integer  "invitation_id"
-    t.integer  "invitation_limit"
->>>>>>> 52bb49b8d2d6f695e0535b0f6e5df36f779fd779
+    t.integer "invitation_id"
+    t.integer "invitation_limit"
   end
 
   add_index "users", ["rol_id"], name: "index_users_on_rol_id"

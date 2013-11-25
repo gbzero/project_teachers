@@ -2,10 +2,13 @@ class User < ActiveRecord::Base
 
   belongs_to :rol
   belongs_to :school
+  belongs_to :invitation
   has_many :comments
+  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
 
   attr_accessor :password, :password_confirmation, :invitation_token
 
+  before_create :set_invitation_limit
   before_save :encrypt_password
 
   validates :password, confirmation: true, format: { with: /\A[a-z|A-Z|0-9|-]{6,20}\z/x, message:'Contraseña no valida' }
@@ -21,11 +24,6 @@ class User < ActiveRecord::Base
   validates :rol_id, format: { with: /\A\d+\z/, message:'Rol no valido'}
   validates_presence_of :invitation_id, :message => 'is required'
   validates_uniqueness_of :invitation_id
-  
-  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
-  belongs_to :invitation
-  before_create :set_invitation_limit
-  
 
   def full_name
     "#{name} #{last_name} #{second_last_name}"
