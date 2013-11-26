@@ -9,16 +9,14 @@
       <th width='20%'>Comentario</th>
       <th width='20%'>Materia</th>
       <th width='12%'>Fecha</th>
-      <th width='4%'></th>
+      <% if current_user.admin %>
+        <th width='4%'></th>
+      <% end %>
       <th width='4%'></th>
     </tr>
   </thead>
   <tbody>
-  <% if current_user.admin %>
-    <% @comments.order('id').each do |comment| %>
-  <% else %>
-	 <% @comments.order('id').where('user_id = ?', current_user.id).each do |comment| %>
-  <% end %>
+	 <% current_user.comentarios.each do |comment| %>
   <tr>
     <td> <%= link_to comment.teacher.full_name, teacher_path(comment.teacher.id) %></td>
     <td> <%= link_to "#{comment.content[0..20]}", comment_path(comment) %> </td>
