@@ -18,9 +18,9 @@
   <tbody>
 	<% current_user.comentarios.each do |comment| %>
   <tr>
-    <td> <%= link_to comment.teacher.full_name, teacher_path(comment.teacher.id) %></td>
+    <td> <%= link_to comment.teacher.full_name, teacher_path(comment.teacher) %></td>
     <td> <%= link_to "#{comment.content[0..20]}", comment_path(comment) %> </td>
-    <td> <%= link_to comment.course.name, course_path(comment.course.id)%></td>
+    <td> <%= link_to comment.course.name, course_path(comment.course) %></td>
     <td> <%= comment.date_post %></td>
     <% if current_user.admin %>
     	<td><%= link_to 'Editar', edit_comment_path(comment) %></td>

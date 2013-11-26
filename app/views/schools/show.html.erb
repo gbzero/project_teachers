@@ -6,7 +6,7 @@
 
 <h1> <%= @school.name %> </h1>
 <br>
-<b>Materias impartidas:</b>
+<b>Carreras impartidas:</b>
 <ul>
 	<il>
 	<% Major.scoped_by_school_id(@school.id).each do |major| %>
