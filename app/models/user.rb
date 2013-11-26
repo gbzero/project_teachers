@@ -112,7 +112,7 @@ class User < ActiveRecord::Base
   end
 
   def admin
-    self.rol.name == 'Administrador'
+    self.rol_id == 1
   end
 
   def comun?
@@ -148,7 +148,7 @@ class User < ActiveRecord::Base
   def comentarios
     a = Array.new 
     if self.rol_id == self.id_admin
-      #a = Comment.all.each
+      a = Comment.all.each
     else
       a = Comment.where('user_id = ?', self.id).each
     end
