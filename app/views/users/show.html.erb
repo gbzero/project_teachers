@@ -25,10 +25,10 @@
   <%= @user.school.name %>
 </p>
 <p>
-  <% if current_user.admin %>
+  <%#if current_user.admin %>
     <strong>Rol:</strong>
     <%= @user.rol.name %>
-  <% end %>
+  <%#end %>
 </p>
 <br>
 <%= link_to 'Editar', edit_user_path(@user) %> |
