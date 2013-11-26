@@ -34,7 +34,7 @@
     <%= f.label :school_id, 'Escuela' %>
     <%= f.collection_select :school_id, School.all, :id, :name, {prompt:true}, {:class => 'form-control'} %>
   </div>
-  <% if current_user.nil? || current_user.admin %>
+  <% if current_user.admin %>
   <div class='field'>
     <%= f.label :rol_id, 'Rol' %>
     <%= f.collection_select :rol_id, Rol.all, :id, :name, {prompt:true}, {:class => 'form-control'} %>

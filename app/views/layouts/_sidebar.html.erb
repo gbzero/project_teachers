@@ -1,11 +1,11 @@
 <div class='btn-group-vertical nav-collapse'>
 		<button class='btn btn-default' type='button' onclick="window.location.href='<%= teachers_path %>'" > Profesores </button>
 		<button class='btn btn-default' type='button' onclick="window.location.href='<%= comments_path %>'" > Comentarios </button>
-	<% if current_user.admin %>
+    <% if current_user.admin %>
 		<button class='btn btn-default' type='button' onclick="window.location.href='<%= schools_path %>'" > Escuelas </button>
 		<button class='btn btn-default' type='button' onclick="window.location.href='<%= courses_path %>'" > Materias </button>
 		<button class='btn btn-default' type='button' onclick="window.location.href='<%= majors_path %>'" > Carreras </button>
 		<button class='btn btn-default' type='button' onclick="window.location.href='<%= users_path %>'" > Gente </button>
 		<button class='btn btn-default' type='button' onclick="window.location.href='<%= rols_path %>'" > Roles </button>
-	<% end %>
+	<%end %>
 </div>

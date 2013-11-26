@@ -1,0 +1,21 @@
+<h1>Profesores</h1> 
+<% if @teachers.count <= 0 %> 
+  <p class='text-danger'>No hay profesores disponibles.</p><br>
+<% else %>
+<table class='table table-striped table-bordered table-hover'>
+<thead>
+  <tr>
+    <th width='74%'> Nombre </th>
+    
+  </tr>
+</thead>
+<tbody>
+  <% current_user.profesores.each do |teacher| %>
+    <tr>
+      <td><%= link_to "#{teacher.full_name}", teacher_path(teacher.id) %></td>
+     
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<% end %>
