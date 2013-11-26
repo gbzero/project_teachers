@@ -1,17 +1,19 @@
 <table class='table table-striped table-bordered table-hover'>
   <thead>
     <tr>
-      <th width='21%'>Profesor</th>
-      <th width='21%'>Materia</th>
-      <th width='21%'>Fecha</th>
-      <th width='8%'></th>
-      <th width='8%'></th>
+      <th width='20%'>Profesor</th>
+      <th width='20%'>Comentario</th>
+      <th width='20%'>Materia</th>
+      <th width='12%'>Fecha</th>
+      <th width='4%'></th>
+      <th width='4%'></th>
     </tr>
   </thead>
   <tbody>
 	<% object.order('id').where('user_id = ?', current_user.id).each do |comment| %>
   <tr>
     <td><%= link_to comment.teacher.full_name, teacher_path(comment.teacher.id) %></td>
+    <td> <%= link_to "#{comment.content[0..20]}", comment_path(comment) %> </td>
     <td><%= link_to comment.course.name, course_path(comment.course.id)%></td>
     <td><%= comment.date_post %></td>
     <td><%= link_to 'Editar', edit_comment_path(comment) %></td>
