@@ -1,8 +1,7 @@
 <h1>Materias</h1>
 <% if @courses.count <= 0 %>
   <p class='text-danger'>No hay materias disponibles</p><br>
-<% end %>
-<% if @courses.count > 0 %>
+<% else %>
 <table class='table table-striped table-bordered table-hover'>
   <thead>
     <tr>
