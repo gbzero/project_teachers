@@ -1,0 +1,19 @@
+
+<%= form_for(@comment, :remote=>true) do |f| %>
+
+    <% if !courses.blank? %>
+      <%= f.collection_select :course_id , courses , :id, :name, { prompt: true }, { class: 'form-control' }%>
+    <% else %>
+      <%= f.collection_select :course_id, [] , :id, :name, { prompt: true }, { class: 'form-control' }%>
+    <% end %>
+
+   <%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+  <%= f.hidden_field :date_post, :value => "#{Date.today}" %>
+  <div class='field'>
+    <%= f.label :content, 'Comentario' %>
+    <%= f.text_area :content, class:'form-control', maxlength: '254', style: 'resize:none; width:450px; height:80px;' %>
+  </div>
+  <br>
+  <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
+    
+<% end %>

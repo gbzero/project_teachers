@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, :update_courses]
 
   # GET /comments
   # GET /comments.json
@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    
   end
 
   # GET /comments/1/edit
@@ -35,6 +36,19 @@ class CommentsController < ApplicationController
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  # GET /comments/update_courses/1
+  def update_courses
+    teacher=Teacher.find(params[:id]) unless params[:id].blank?
+    courses=nil
+    if(teacher==nil)
+      courses=current_user.materias
+    else
+      courses=teacher.courses
+    end
+   
+     render :partial => "courses", :locals => { :courses => courses }
   end
 
   # PATCH/PUT /comments/1

@@ -7,10 +7,14 @@ ProjectTeacher::Application.routes.draw do
   
   get 'sign_up/:invitation_token' , :controller => 'users', :action => 'new'
   get 'sign_up' => 'users#new', as: 'sign_up'
+  
+  get 'comments/update_courses/:id' => 'comments#update_courses'
 
   resources :schools
 
   resources :comments
+
+  #get 'comments/update_courses/:id', :controller=>'comments', :action => 'update_courses'
 
   resources :teachers
 

@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+  <div class="alert alert-dismissable alert-success">
+    <%= notice %>
+  </div>
+<% end %>
 
 <p>
   <strong>Sender:</strong>
@@ -25,5 +29,5 @@
   <%= @invitation.new %>
 </p>
 
-<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
-<%= link_to 'Back', invitations_path %>
+<%= link_to 'Editar', edit_invitation_path(@invitation) %> |
+<%= link_to 'Volver', invitations_path %>

@@ -1,24 +1,12 @@
 <%= form_for(@invitation) do |f| %>
-  <% if @invitation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
+  
+  <%= render 'layouts/error_messages', object: @invitation %>
 
-      <ul>
-      <% @invitation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-  <div class="field">
-    <%= f.label :Friend_Email %><br>
-    <%= f.text_field :recipient_email %>
-  </div>
-  <!--<div class="field">
-  </div>-->
+  <div class='field'>
+    <%= f.label :Friend_Email, 'Correo de tu amigo' %><br>
+    <%= f.text_field :recipient_email, class:'form-control', size:'30' %>
+  </div><br>
   <div class="actions">
-    <%= f.submit %>
+    <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
   </div>
 <% end %>
