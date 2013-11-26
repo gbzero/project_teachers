@@ -52,9 +52,9 @@ class User < ActiveRecord::Base
 
   def registred? #Si es un usuario refistrado devuelve falso
     if self.id.nil? 
-      return false
-    else
       return true
+    else
+      return false
     end
   end
 
