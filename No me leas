@@ -1,3 +1,5 @@
+;alalala
+ 
 Para que no mende error con el js
 #   sudo apt-get install nodejs  
 
@@ -66,7 +68,8 @@ ANGULAR  { Sirve para modificar cosas[variables] en tiempo real }
 
 COSAS
 	gem 'omniauth-facebook' # Para autentificarte con facebook
-	gem 'devise' # Para los correos e invitaciones, se puden conectar con la cuenta de google
+	
+Gema devise para los correos y ser felices para invitarlos y se puden conectar con la cuenta de google
 
 ALTERNATIVAS
 	De GIT 	
