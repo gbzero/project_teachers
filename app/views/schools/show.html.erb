@@ -6,11 +6,11 @@
 
 <h1> <%= @school.name %> </h1>
 <br>
-<b>Escuelas impartidas:</b>
+<b>Materias impartidas:</b>
 <ul>
 	<il>
 	<% Major.scoped_by_school_id(@school.id).each do |major| %>
-		<%= link_to "#{major.name}", major_path(major) %>
+		<%= link_to "#{major.name}", major_path(major) %><br>
 	<% end %>
 	</il>
 </ul>
