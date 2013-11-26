@@ -22,7 +22,7 @@
     <td> <%= link_to "#{comment.content[0..20]}", comment_path(comment) %> </td>
     <td> <%= link_to comment.course.name, course_path(comment.course.id) %></td>
     <td> <%= comment.date_post %></td>
-    <% if current_user.admin %>
+    <% if current_user.admin? %>
     	<td><%= link_to 'Editar', edit_comment_path(comment) %></td>
     <% end %>
     <td><%= link_to 'Eliminar', comment, method: :delete, data: { confirm: '¿Seguro?' } %></td>
