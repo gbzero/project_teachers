@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
 
   def materias
     cour = Array.new
-    if self.rol.name == 'Administrador'
+    if self.rol_id == 1
       cour = Course.all
     else
       User.find(self.id).school.majors.each do |carrera| 
