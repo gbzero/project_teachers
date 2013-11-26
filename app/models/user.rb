@@ -146,11 +146,13 @@ class User < ActiveRecord::Base
   end
 
   def comentarios
+    a = Array.new 
     if self.rol_id == self.id_admin
-      return Comment.all
+      a = Comment.all
     else
-      return Comment.where('user_id = ?', self.id).each
+      a = Comment.where('user_id = ?', self.id).each
     end
+    return a
   end
 
 end
