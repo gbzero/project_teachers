@@ -14,7 +14,11 @@
     </tr>
   </thead>
   <tbody>
-	<% @comments.order('id').where('user_id = ?', current_user.id).each do |comment| %>
+  <% if current_user.admin %>
+    <% @comments.order('id').each do |comment| %>
+  <% else %>
+	 <% @comments.order('id').where('user_id = ?', current_user.id).each do |comment| %>
+  <% end %>
   <tr>
     <td> <%= link_to comment.teacher.full_name, teacher_path(comment.teacher.id) %></td>
     <td> <%= link_to "#{comment.content[0..20]}", comment_path(comment) %> </td>
