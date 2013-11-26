@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-	<% @comments.order('id').each do |comment| %>
+	<% object.order('id').each do |comment| %>
   <tr>
     <td> <%= link_to "#{comment.user.full_name}", user_path(comment.user) %> </td>
     <td> <%= link_to "#{comment.content[0..20]}", comment_path(comment) %> </td>

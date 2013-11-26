@@ -3,9 +3,9 @@
   <p class='text-danger'> No hay comentarios disponibles.</p>
 <% else %>
   <% if current_user.admin? %>
-    <%= render 'admin' %>
+    <%= render 'admin', object: @comments %>
   <% else %>
-    <%= render 'user' %>
+    <%= render 'user', object: @comments %>
   <% end %>
 <% end %>
 <br>

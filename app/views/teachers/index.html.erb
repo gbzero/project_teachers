@@ -3,7 +3,7 @@
   <p class='text-danger'>No hay profesores disponibles.</p><br>
 <% else %>
 <% if current_user.admin %>
-    <%= render 'admin' %>
+    <%= render 'admin', object: @teachers %>
     <br>
     <button class='btn btn-primary btn-sm' type='button' onclick="window.location.href='<%= new_teacher_path %>'" > Nuevo </button>
   <% else %>
