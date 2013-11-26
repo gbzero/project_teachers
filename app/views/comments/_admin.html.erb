@@ -12,9 +12,9 @@
   <tbody>
 	<% object.order('id').each do |comment| %>
   <tr>
-    <td> <%= link_to "#{comment.user.full_name}", user_path(comment.user) %> </td>
+    <td> <%= link_to "#{comment.user.full_name}", user_path(comment.user_id) %> </td>
     <td> <%= link_to "#{comment.content[0..20]}", comment_path(comment) %> </td>
-    <td> <%= link_to "#{comment.teacher.full_name}", teacher_path(comment.teacher) %> </td>
+    <td> <%= link_to "#{comment.teacher.full_name}", teacher_path(comment.teacher_id) %> </td>
     <td> <%= link_to "#{comment.course.name}", course_path(comment.course) %> </td>
     <td> <%#= comment.date_post %> </td>
     <td> <%= link_to 'Eliminar', comment, method: :delete, data: { confirm: '¿Seguro?' } %> </td>
