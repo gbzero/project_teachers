@@ -12,7 +12,7 @@
 	<% end %>
 	<br>
 	<br>
-	<% if can? :update, @teacher %>
+	<% if current_user.admin %>
 		<%= link_to 'Editar', edit_teacher_path(@teacher) %> |
 	<% end %>
 	<%= link_to 'Volver', teachers_path %>
@@ -33,7 +33,7 @@
 		</p>
 		<% Teacher.find(params[:id]).comments.order('id').each do |comment| %>
 			<br>
-			<i> <strong> <%= current_user.nickname %></strong></i>: 
+			<i> <strong> <%= comment.user.nickname %></strong></i>: 
 			<ul> <%= comment.contenido %> </ul>
 		<% end %>
 	<% end %>
