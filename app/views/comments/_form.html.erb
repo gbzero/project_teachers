@@ -5,10 +5,16 @@
   <div class='field'>
     <%= f.label :teacher_id, 'Profesor' %>
     <%= f.collection_select :teacher_id, current_user.profesores, :id, :full_name, { prompt: true }, { class: 'form-control', id: 'comment_teacher_id' } %>    
+
+    <%# current_user.profesores.each do |p| %>
+      <%#= p.full_name %> <br>
+    <%# end %>
   </div>
   <div id="courses",class='field'>
        <%= f.label :course_id, 'Materia' %>
         <%= render :partial => 'courses', :locals => { :courses => current_user.materias }  %>
   </div>
+  
+
 
 <% end %>
