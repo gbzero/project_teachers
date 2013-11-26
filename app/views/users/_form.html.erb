@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   
   <%= render 'layouts/error_messages', object: @user %>
-
+<%= f.hidden_field :invitation_token %>
   <div class='field'>
     <%= f.label :nickname, 'Mote' %>
     <%= f.text_field :nickname, class:'form-control' %>
@@ -34,10 +34,14 @@
     <%= f.label :school_id, 'Escuela' %>
     <%= f.collection_select :school_id, School.all, :id, :name, {prompt:true}, {:class => 'form-control'} %>
   </div>
+  <% if current_user.nil? || current_user.admin %>
   <div class='field'>
     <%= f.label :rol_id, 'Rol' %>
     <%= f.collection_select :rol_id, Rol.all, :id, :name, {prompt:true}, {:class => 'form-control'} %>
   </div>
+  <% else %>
+    <%= f.hidden_field :rol_id, :value => "#{current_user.id_rol_usuario}" %>
+  <% end %>
   <br>
   <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
 <% end %>

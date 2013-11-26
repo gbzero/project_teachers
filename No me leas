@@ -68,8 +68,7 @@ ANGULAR  { Sirve para modificar cosas[variables] en tiempo real }
 
 COSAS
 	gem 'omniauth-facebook' # Para autentificarte con facebook
-	
-Gema devise para los correos y ser felices para invitarlos y se puden conectar con la cuenta de google
+	gem 'devise' # Para los correos e invitaciones, se puden conectar con la cuenta de google
 
 ALTERNATIVAS
 	De GIT 	

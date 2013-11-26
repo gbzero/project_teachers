@@ -1,0 +1,12 @@
+<%= form_for(@invitation) do |f| %>
+  
+  <%= render 'layouts/error_messages', object: @invitation %>
+
+  <div class='field'>
+    <%= f.label :Friend_Email, 'Correo de tu amigo' %><br>
+    <%= f.text_field :recipient_email, class:'form-control', size:'30' %>
+  </div><br>
+  <div class="actions">
+    <button type='submit' class='btn btn-primary btn-sm'> Guardar </button>
+  </div>
+<% end %>
