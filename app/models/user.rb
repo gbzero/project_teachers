@@ -149,7 +149,7 @@ class User < ActiveRecord::Base
     if self.rol_id == self.id_admin
       return Comment.all.each
     else
-      return Comment.all.where('user_id = ?', self.id)
+      return Comment.all.where('user_id = ?', self.id).each
     end
   end
 
